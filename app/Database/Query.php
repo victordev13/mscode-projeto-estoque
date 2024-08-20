@@ -9,10 +9,11 @@ class Query
     public function __construct()
     {
         $database = new Database(
-            host: 'localhost',
-            database: 'mscode',
+            host: '127.0.0.1',
+            database: 'mscode_estoque',
             username: 'root',
-            password: 'mscode2024'
+            password: 'root',
+            port: 3306,
         );
 
         $this->pdo = $database->connection();
@@ -40,13 +41,68 @@ class Query
 
     public function insert(string $tabela, array $dados): false|int
     {
+        try {
+            $colunas = implode(', ', array_keys($dados));
+            $valores = ':' . implode(', :', array_keys($dados));
+
+            $sql = "INSERT INTO {$tabela} ({$colunas}) VALUES ({$valores})";
+
+            $stmt = $this->pdo->prepare($sql);
+
+            foreach ($dados as $coluna => $valor) {
+                $stmt->bindValue(":{$coluna}", $valor);
+            }
+
+            $stmt->execute();
+
+            return $this->pdo->lastInsertId();
+        } catch (\PDOException $e) {
+            echo "Erro na inserção: {$e->getMessage()}";
+
+            return false;
+        }
     }
 
-    public function update(string $tabela, array $dados, string $codicao): bool
+    public function update(string $tabela, array $dados, string $condicao): bool
     {
+        try {
+            $sets = [];
+
+            foreach ($dados as $coluna => $valor) {
+                $sets[] = "{$coluna} = :{$coluna}";
+            }
+
+            $sql = "UPDATE {$tabela} SET " . implode(', ', $sets) . " WHERE {$condicao}";
+
+            $stmt = $this->pdo->prepare($sql);
+
+            foreach ($dados as $coluna => $valor) {
+                $stmt->bindValue(":{$coluna}", $valor);
+            }
+
+            $stmt->execute();
+
+            return true;
+        } catch (\PDOException $e) {
+            echo "Erro na atualização: {$e->getMessage()}";
+
+            return false;
+        }
     }
 
-    public function delete(string $tabela, string $codicao): bool
+    public function delete(string $tabela, string $condicao): bool
     {
+        try {
+            $sql = "DELETE FROM {$tabela} WHERE {$condicao}";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+
+            return true;
+        } catch (\PDOException $e) {
+            echo "Erro na exclusão: {$e->getMessage()}";
+
+            return false;
+        }
     }
 }

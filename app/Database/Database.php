@@ -10,18 +10,22 @@ readonly class Database
     private PDO $pdo;
 
     public function __construct(
-        public string $host,
-        public string $database,
-        public string $username,
-        public string $password
+        string $host,
+        string $database,
+        string $username,
+        string $password,
+        ?int $port = null,
     ) {
         try {
-            $dsn = "mysql:host={$this->host};dbname={$this->database};charset=utf8";
+            $dsn = "mysql:host={$host};dbname={$database};charset=utf8";
+            if ($port) {
+                $dsn .= ";port={$port};";
+            }
 
             $this->pdo = new PDO(
                 dsn: $dsn,
-                username: $this->username,
-                password: $this->password
+                username: $username,
+                password: $password
             );
 
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
