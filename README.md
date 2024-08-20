@@ -1,1 +1,1 @@
-MS Code - Projeto de Estoque/PDV 2024
+MS Code - Projeto de Estoque 2024
