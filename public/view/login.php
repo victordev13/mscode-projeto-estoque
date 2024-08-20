@@ -13,7 +13,7 @@
 </head>
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto">
-        <form action="index.html">
+        <form action="/login/autenticar" method="POST">
             <div class="d-flex align-items-center mb-4">
                 <img class="p-0" src="/assets/images/logotipo.svg" width="72" height="57">
 
@@ -21,11 +21,11 @@
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
                 <label for="email">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="senha" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="senha" placeholder="Password">
                 <label for="senha">Senha</label>
             </div>
 

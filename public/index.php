@@ -4,6 +4,7 @@ require_once '../vendor/autoload.php';
 require_once './routes.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+$uri = rtrim($uri, '/');
 
 foreach ($router['routes'] as $route => $controller) {
     if ($uri === $route) {

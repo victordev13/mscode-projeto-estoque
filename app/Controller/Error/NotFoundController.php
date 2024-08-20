@@ -8,6 +8,6 @@ class NotFoundController extends AbstractController
 {
     public function index(array $data): void
     {
-        $this->include('404.php');
+        $this->render('404.php');
     }
 }
