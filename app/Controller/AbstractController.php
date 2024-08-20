@@ -9,6 +9,13 @@ abstract class AbstractController
         require_once($_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName);
     }
 
+    public function showJson(array $data): never
+    {
+        header("Content-Type: application/json");
+        echo json_encode($data);
+        die();
+    }
+
     public function redirect(string $route): never
     {
         header("Location: {$route}");
