@@ -12,11 +12,11 @@ $senha = 'minha_senha';
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-$data = array(
+$data = [
     'nome' => $nome,
     'email' => $email,
     'senha' => $senha_hash
-);
+];
 $query->insert('usuario', $data);
 
 echo 'Usuário inserido com sucesso!';
