@@ -6,6 +6,14 @@ abstract class AbstractController
 {
     public function render(string $viewName, array $data = []): void
     {
+        $file = __DIR__.'/../../public/view/'.$viewName;
+        $file = file_exists($file) ? file_get_contents($file) : '';
+
+        $keys = array_keys($data);
+        $keys = array_map(function($item){
+            return '{{'.$item.'}}';
+        },$keys);
+
         require_once($_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName);
     }
 
@@ -16,7 +24,7 @@ abstract class AbstractController
         die();
     }
 
-    public function redirect(string $route): never
+    public static function redirect(string $route): never
     {
         header("Location: {$route}");
         die();
