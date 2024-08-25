@@ -13,9 +13,9 @@ class AutenticarController extends AbstractController
         if (null === $usuario) {
             $this->redirect('/error');
         }
+        
+        if(password_verify($requestData['password'], $usuario[0]['senha'])) $this->redirect('/app');
 
-        // lógica para fazer login
-        // redirecionar para painel
-        $this->redirect('/app');
+        $this->redirect('/error');
     }
 }

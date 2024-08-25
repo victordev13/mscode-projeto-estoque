@@ -30,7 +30,7 @@
             </div>
 
             <button class="btn btn-primary w-100 py-2" type="submit">Acessar</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017-2024</p>
         </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

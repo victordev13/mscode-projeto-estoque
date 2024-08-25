@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once '../vendor/autoload.php';
 require_once './routes.php';
 
@@ -16,4 +18,3 @@ foreach ($router['routes'] as $route => $controller) {
 
 $notFoundController = new $router['default']();
 $notFoundController->index($_REQUEST);
-exit;
