@@ -23,7 +23,7 @@
           </a>
 
           <ul class="nav nav-pills d-flex align-items-center">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
+            <li class="nav-item"><a href="/view/app.php" class="nav-link active" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Vendas

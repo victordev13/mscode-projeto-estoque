@@ -4,6 +4,10 @@ namespace App\Controller;
 
 abstract class AbstractController
 {
+    public function __construct()
+    {
+        session_start();
+    }
     public function render(string $viewName, array $data = []): void
     {
         $file = __DIR__.'/../../public/view/'.$viewName;
@@ -24,7 +28,7 @@ abstract class AbstractController
         die();
     }
 
-    public static function redirect(string $route): never
+    public function redirect(string $route): never
     {
         header("Location: {$route}");
         die();
