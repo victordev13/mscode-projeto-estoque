@@ -17,12 +17,10 @@ class CategoriaController extends AbstractController
 
     if($_SERVER['REQUEST_URI'] === "/app/categoria/nova"){
       require_once($this->render('categoria/nova_categoria.php')[0]);
-      dd($_POST);
       exit;
     }
 
     require_once($this->render('categoria/categoria.php')[0]);
-    dd($_POST);
     foreach ($categorias as $categoria) {
       echo "<tr>";
       foreach ($categoria as $key => $coluna) {
