@@ -18,6 +18,8 @@ $router = [
         '/app/estoque' => EstoqueController::class,
         '/app/categoria' => CategoriaController::class,
         '/app/categoria/nova' => CategoriaController::class,
+        '/app/categoria/edit' => CategoriaController::class,
+        '/app/categoria/excluir' => CategoriaController::class,
         '/app/venda' => VendasController::class,
         '/app/venda/nova' => VendasController::class,
     ],

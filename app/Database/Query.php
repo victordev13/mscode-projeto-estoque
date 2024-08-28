@@ -54,7 +54,6 @@ class Query
             foreach ($dados as $coluna => $valor) {
                 $stmt->bindValue(":{$coluna}", $valor);
             }
-
             $stmt->execute();
 
             return $this->pdo->lastInsertId();
@@ -74,7 +73,7 @@ class Query
                 $sets[] = "{$coluna} = :{$coluna}";
             }
 
-            $sql = "UPDATE {$tabela} SET " . implode(', ', $sets) . " WHERE {$condicao}";
+            $sql = "UPDATE {$tabela} SET " . implode(', ', $sets) . " WHERE {$condicao};";
 
             $stmt = $this->pdo->prepare($sql);
 

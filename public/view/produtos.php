@@ -11,13 +11,14 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-        <th scope="col-2 text-align-right">Actions</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Preço</th>
+        <th scope="col-2 text-align-right">Ações</th>
       </tr>
     </thead>
     <tbody>
 <!--</tbody>
   </table>
+</div>
 -->

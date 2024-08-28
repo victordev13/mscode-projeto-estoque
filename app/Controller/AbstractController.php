@@ -9,7 +9,9 @@ abstract class AbstractController
         session_start();
     }
     public function render(string $viewName, array $data = []): array
-    {
+    {   
+        $header = file_get_contents(__DIR__.'/../../public/view/includes/header.php');
+        $footer = file_get_contents(__DIR__.'/../../public/view/includes/footer.php');
         $file = __DIR__.'/../../public/view/'.$viewName;
         $file = file_exists($file) ? file_get_contents($file) : '';
 
@@ -18,7 +20,9 @@ abstract class AbstractController
             return '{{'.$item.'}}';
         },$keys);
         
-        return [$_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName, str_replace($keys, array_values($data), $file)];
+        $pagCompleta = $header . $file . $footer;
+
+        return [$_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName, str_replace($keys, array_values($data), $pagCompleta)];
     }
 
     public function showJson(array $data): never

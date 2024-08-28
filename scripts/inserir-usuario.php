@@ -6,9 +6,9 @@ use App\Database\Query;
 
 $query = new Query();
 
-$nome = 'Luiz';
-$email = 'luiz@gmail.com';
-$senha = 'luiz';
+$nome = 'Matheus';
+$email = 'matheus@gmail.com';
+$senha = 'elisao';
 
 $emailBanco = $query->select(
     tabela: 'usuario',

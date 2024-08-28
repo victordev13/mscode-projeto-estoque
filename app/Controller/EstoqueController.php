@@ -14,7 +14,10 @@ class EstoqueController extends AbstractController
       colunas: 'id,nome,descricao,valor'
     );
 
-    require_once($this->render('produtos.php')[0]);
+    echo $this->render('produtos.php',[
+      'headTitle' => '- Estoque',
+      'produtosActive' => 'active'
+    ])[1];
 
     foreach ($produtos as $produto) {
       echo "<tr>";
@@ -32,5 +35,6 @@ class EstoqueController extends AbstractController
             </td>";
       echo "</tr>";
     }
+    echo "</tbody></table></div>";
   }
 }

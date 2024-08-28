@@ -10,15 +10,12 @@ class AppController extends AbstractController
   {
 
     $usuario = new Usuario();
-    $nome = $usuario->buscarPorEmail($_SESSION['email']);
-    $nome = $nome[0]['nome'];
+    $nome = $usuario->buscarPorEmail($_SESSION['email'])[0]['nome'];
 
-    $render = $this->render('app.php', [
+    echo $this->render('app.php', [
+      'headTitle' => '- App',
+      'inicioActive' => 'active',
       'nome' => $nome
-    ]);
-
-    require_once __DIR__.'../../../public/view/includes/header.php';
-    echo $render[1];
-    require_once __DIR__.'../../../public/view/includes/footer.php';
+    ])[1];
   }
 }

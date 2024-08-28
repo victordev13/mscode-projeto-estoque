@@ -1,7 +1,3 @@
-<?php    
-  require_once __DIR__.'../../includes/header.php';
-  require_once __DIR__.'../../includes/footer.php';
-?>  
 <div class="container py-5">
   <div class="mb-4 d-flex flex-row justify-content-between">
     <h1>Categorias</h1>
