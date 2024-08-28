@@ -8,6 +8,7 @@ class NotFoundController extends AbstractController
 {
     public function index(array $data): void
     {
-        $this->render('404.php');
+
+        require_once($this->render('error/404.php')[0]);
     }
 }

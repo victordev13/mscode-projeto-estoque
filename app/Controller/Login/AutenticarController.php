@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Login;
 
-use App\Database\Query;
+use App\Controller\AbstractController;
 use App\Model\Usuario;
 
 class AutenticarController extends AbstractController

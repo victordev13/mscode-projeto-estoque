@@ -8,7 +8,7 @@ abstract class AbstractController
     {
         session_start();
     }
-    public function render(string $viewName, array $data = []): void
+    public function render(string $viewName, array $data = []): array
     {
         $file = __DIR__.'/../../public/view/'.$viewName;
         $file = file_exists($file) ? file_get_contents($file) : '';
@@ -17,8 +17,8 @@ abstract class AbstractController
         $keys = array_map(function($item){
             return '{{'.$item.'}}';
         },$keys);
-
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName);
+        
+        return [$_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName, str_replace($keys, array_values($data), $file)];
     }
 
     public function showJson(array $data): never
