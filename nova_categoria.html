@@ -38,7 +38,7 @@
                 Produtos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="produtos.html">Estoque</a></li>
+                <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
                 <li><a class="dropdown-item active" href="categorias.html">Categorias</a></li>
               </ul>
             </li>
