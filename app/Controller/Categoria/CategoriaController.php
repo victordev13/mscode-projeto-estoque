@@ -10,47 +10,9 @@ class CategoriaController extends AbstractController
   public function index(array $requestData): void
   { 
     $query = new Query();
-    
-    //Exclui a categoria
-    if($_GET['excluir'] === 'true'){
-      $query->delete(
-        tabela: 'categoria',
-        condicao: 'id='.$_GET['id']
-      );
-    }
-
-    //Redireciona para Criar uma nova Categoria
-    if($_SERVER['REQUEST_URI'] === "/app/categoria/nova"){
-      $render = $this->render('categoria/nova_categoria.php',[
-        'headTitle' => '- Categorias',
-        'produtosActive' => 'active',
-        'titulo' => 'Nova',
-        'idValue' => 0,
-        'nome' => '',
-        'editOrSave' => 'save',
-        'submitButton' => 'Salvar'
-      ])[1];
-      echo $render;
-      exit;
-    }
-
-    //Redireciona para Editar a Catergoria
-    if($_SERVER['REQUEST_URI'] === "/app/categoria/edit"){
-      $render = $this->render('categoria/nova_categoria.php',[
-        'headTitle' => '- Categorias',
-        'produtosActive' => 'active',
-        'titulo' => 'Editar',
-        'idValue' => $_POST['id'],
-        'nome' => $_POST['nome'],
-        'editOrSave' => 'edit',
-        'submitButton' => 'Atualizar'
-      ])[1];
-      echo $render;
-      exit;
-    }
 
     //Edita a Categoria
-    if($_POST['editOrSave'] === 'edit'){
+    if($_POST['editOrSave'] === 'edit' && $_POST['nome'] != null){
       $query->update(
         tabela: 'categoria',
         dados: [

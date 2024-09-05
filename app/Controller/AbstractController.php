@@ -22,7 +22,10 @@ abstract class AbstractController
         
         $pagCompleta = $header . $file . $footer;
 
-        return [$_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName, str_replace($keys, array_values($data), $pagCompleta)];
+        return [
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName,
+            str_replace($keys, array_values($data), $pagCompleta)
+        ]; 
     }
 
     public function showJson(array $data): never
