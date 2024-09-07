@@ -16,10 +16,8 @@ class AppController extends AbstractController
       $this->redirect('/login');
     }
 
-    echo $this->render('app.php', [
-      'headTitle' => '- App',
-      'inicioActive' => 'active',
+    $this->render('app.php',[
       'nome' => $nome
-    ])[1];
+    ])[0];
   }
 }

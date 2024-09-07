@@ -9,7 +9,13 @@ use App\Controller\Categoria\EditarController;
 use App\Controller\Categoria\ListarController;
 use App\Controller\Categoria\RemoverController;
 use App\Controller\Categoria\SalvarController;
-use App\Controller\EstoqueController;
+use App\Controller\Produto\AdicionarProdutoController;
+use App\Controller\Produto\CadastrarProdutoController;
+use App\Controller\Produto\EditarProdutoController;
+use App\Controller\Produto\ListarProdutoController;
+use App\Controller\Produto\RemoverProdutoController;
+use App\Controller\Produto\SalvarProdutoController;
+use App\Controller\Produto\VenderProdutoController;
 use App\Controller\Vendas\VendasController;
 
 $router = [
@@ -19,14 +25,17 @@ $router = [
         '/login' => LoginController::class,
         '/login/autenticar' => AutenticarController::class,
         '/app' => AppController::class,
-        '/app/estoque' => EstoqueController::class,
-        '/app/estoque/add' => EstoqueController::class,
-        '/app/estoque/edit' => EstoqueController::class,
-        '/app/estoque/excluir' => EstoqueController::class,
+        '/app/estoque' => ListarProdutoController::class,
+        '/app/estoque/nova' => CadastrarProdutoController::class,
+        '/app/estoque/add' => AdicionarProdutoController::class,
+        '/app/estoque/vender' => VenderProdutoController::class,
+        '/app/estoque/editar' => EditarProdutoController::class,
+        '/app/estoque/salvar' => SalvarProdutoController::class,
+        '/app/estoque/excluir' => RemoverProdutoController::class,
         '/app/categoria' => ListarController::class,
         '/app/categoria/nova' => CadastrarController::class,
-        '/app/categoria/nova/salvar' => SalvarController::class,
-        '/app/categoria/edit' => EditarController::class,
+        '/app/categoria/salvar' => SalvarController::class,
+        '/app/categoria/editar' => EditarController::class,
         '/app/categoria/excluir' => RemoverController::class,
         '/app/venda' => VendasController::class,
         '/app/venda/nova' => VendasController::class,

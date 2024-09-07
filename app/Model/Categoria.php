@@ -6,14 +6,14 @@ use App\Database\Query;
 
 class Categoria
 {
-  private Query $query;
+    private Query $query;
 
-  public function __construct()
-  {
-    $this->query = new Query();
-  }
+    public function __construct()
+    {
+        $this->query = new Query();
+    }
 
-  public function cadastrar(string $nome): void
+    public function cadastrar(string $nome): void
     {
         $this->query->insert('categoria', ['nome' => $nome]);
     }

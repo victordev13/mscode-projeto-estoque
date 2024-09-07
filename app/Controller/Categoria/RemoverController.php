@@ -10,9 +10,9 @@ class RemoverController extends AbstractController
     public function index(array $requestData): void
     {
         $model = new Categoria();
-
+        
         $model->remover($requestData['id']);
 
-        $this->redirect('/app/categorias');
+        $this->redirect('/app/categoria');
     }
 }

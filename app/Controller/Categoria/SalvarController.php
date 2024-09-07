@@ -10,7 +10,6 @@ class SalvarController extends AbstractController
     public function index(array $requestData): void
     {
         $model = new Categoria();
-
         if (isset($requestData['id'])) {
             $model->editar($requestData['id'], $requestData['nome']);
         } else {

@@ -19,12 +19,12 @@
         <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
           <a href="/app" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <img class="me-2" src="/assets/images/logotipo.svg" width="53">
-            <span class="fs-4">MS Code {{headTitle}}</span>
+            <span class="fs-4">MS Code - Categorias</span>
           </a>
           <ul class="nav nav-pills d-flex align-items-center">
-            <li class="nav-item"><a href="/app" class="nav-link {{inicioActive}}" aria-current="page">Início</a></li>
+            <li class="nav-item"><a href="/app" class="nav-link" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle {{vendasActive}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Vendas
               </a>
               <ul class="dropdown-menu">
@@ -33,7 +33,7 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle {{produtosActive}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle Active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Produtos
               </a>
               <ul class="dropdown-menu">
@@ -53,7 +53,6 @@
           <a href="/app/categoria/nova" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
         </div>
       </div>
-
       <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -68,8 +67,8 @@
               <th scope="row"><?php echo $categoria['id']; ?></th>
               <td><?php echo $categoria['nome']; ?></td>
               <td class="col-1 text-align-right">
-                <a href="/categorias/editar?id=<?php echo $categoria['id']; ?>" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></a>
-                <a href="/categorias/remover?id=<?php echo $categoria['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-x"></i></a>
+                <a href="categoria/editar?id=<?php echo $categoria['id']; ?>" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></a>
+                <a href="categoria/excluir?id=<?php echo $categoria['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-x"></i></a>
               </td>
             </tr>
           <?php } ?>
