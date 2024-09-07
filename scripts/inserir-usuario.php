@@ -12,7 +12,7 @@ $senha = '0000';
 
 $emailBanco = $query->select(
     tabela: 'usuario',
-    condicao: "email="."'".$email."'",
+    condicao: "email=".$email,
     colunas: 'email'
 );
 
