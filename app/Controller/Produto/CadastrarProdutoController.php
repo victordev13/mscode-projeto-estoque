@@ -8,6 +8,9 @@ class CadastrarProdutoController extends AbstractController
 {
     public function index(array $requestData): void
     {
-      $this->render('estoque/add.php')[0];
+      $this->render('estoque/add.php',[
+        'headTitle' => '- Produtos',
+        'produtosActive' => 'active'
+      ]);
     }
 }

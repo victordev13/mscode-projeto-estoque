@@ -7,14 +7,15 @@ use App\Model\Categoria;
 
 class ListarController extends AbstractController
 {
-    public function index(array $requestData): void
-    {
-        $model = new Categoria();
-        $categorias = $model->listar();
+  public function index(array $requestData): void
+  {
+    $model = new Categoria();
+    $categorias = $model->listar();
 
-        $this->render('categoria/categoria.php',[
-          'categorias' => $categorias
-        ])[0];
-
-    }
+    $this->render('categoria/categoria.php', [
+      'categorias' => $categorias,
+      'headTitle' => '- Categorias',
+      'produtosActive' => 'active',
+    ]);
+  }
 }

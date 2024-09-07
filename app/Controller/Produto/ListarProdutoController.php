@@ -13,8 +13,9 @@ class ListarProdutoController extends AbstractController
     $produtos = $model->listar();
 
     $this->render('estoque/produtos.php', [
-      'produtos' => $produtos
-    ])[0];
+      'produtos' => $produtos,
+      'headTitle' => '- Produtos',
+      'produtosActive' => 'active'
+    ]);
   }
-} {
 }

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="/assets/css/styles.css" rel="stylesheet">
 </head>
+
 <body>
     <main>
         <div class="border-bottom mb-2">
@@ -17,12 +19,12 @@
                 <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
                     <a href="/app" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                         <img class="me-2" src="/assets/images/logotipo.svg" width="53">
-                        <span class="fs-4">MS Code {{headTitle}}</span>
+                        <span class="fs-4">MS Code <?= $data['headTitle'] ?></span>
                     </a>
                     <ul class="nav nav-pills d-flex align-items-center">
-                        <li class="nav-item"><a href="/app" class="nav-link {{inicioActive}}" aria-current="page">Início</a></li>
+                        <li class="nav-item"><a href="/app" class="nav-link <?= $data['inicioActive']?>" aria-current="page">Início</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{vendasActive}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?= $data['vendasActive']?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Vendas
                             </a>
                             <ul class="dropdown-menu">
@@ -31,7 +33,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{produtosActive}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?= $data['produtosActive']?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Produtos
                             </a>
                             <ul class="dropdown-menu">
