@@ -8,6 +8,7 @@ class LoginController extends AbstractController
 {
     public function index(array $data): void
     {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . 'login/login.php';
+        $_SESSION['usuarioLogado'] = false;
+        $this->render('login/login.php');
     }
 }

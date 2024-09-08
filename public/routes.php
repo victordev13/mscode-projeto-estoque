@@ -9,6 +9,8 @@ use App\Controller\Categoria\EditarController;
 use App\Controller\Categoria\ListarController;
 use App\Controller\Categoria\RemoverController;
 use App\Controller\Categoria\SalvarController;
+use App\Controller\Login\CadastrarUsuarioController;
+use App\Controller\Login\ShowCadastrarUsuarioController;
 use App\Controller\Produto\AdicionarProdutoController;
 use App\Controller\Produto\CadastrarProdutoController;
 use App\Controller\Produto\EditarProdutoController;
@@ -22,6 +24,8 @@ $router = [
     'routes' => [
         '' => LoginController::class,
         '/' => LoginController::class,
+        '/cadastrar' => ShowCadastrarUsuarioController::class,
+        '/cadastrar/salvar' => CadastrarUsuarioController::class,
         '/login' => LoginController::class,
         '/login/autenticar' => AutenticarController::class,
         '/app' => AppController::class,

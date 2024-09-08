@@ -7,9 +7,18 @@ abstract class AbstractController
     public function __construct()
     {
         session_start();
+        if ($_SESSION['usuarioLogado'] === false && $_SERVER['REQUEST_URI'] !== '/login' && $_SERVER['REQUEST_URI'] !== '/login/autenticar' && $_SERVER['REQUEST_URI'] !== '/cadastrar' && $_SERVER['REQUEST_URI'] !== '/cadastrar/salvar')
+        {
+            $this->redirect('/login');
+        }
     }
 
     public function render(string $viewName, array $data = []): void
+    {
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName;
+    }
+
+    public function renderComHeader(string $viewName, array $data = []): void
     {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . '/includes/' . 'header.php';
         require_once $_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName;

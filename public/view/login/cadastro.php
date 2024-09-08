@@ -14,28 +14,38 @@
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto">
-        <form action="/login/autenticar" method="POST">
+        <form action="/cadastrar/salvar" method="POST">
             <div class="d-flex align-items-center mb-4">
                 <img class="p-0" src="/assets/images/logotipo.svg" width="72" height="57">
 
                 <h1 class="h3 fw-normal my-0 ms-2">MS Code - Estoque</h1>
             </div>
-            <?php if ($data['error']) {
-                echo "<div class='form-floarting alert alert-danger' role='alert'>{$data['error']}</div>";
-            } ?>
-            <div class="form-floating">
+                <?php if ($data['error'] === true) { 
+                    echo "<div class='alert alert-danger' role='alert'>Email já cadastrado!</div>";
+                } else if ($data['error'] === false) {
+                    echo "<div class='alert alert-success' role='alert'>Cadastrado Com Sucesso!</div>";
+                } else {
+                    echo "";
+                } ?>
+            </div>
+
+            <div class="form-floating my-1">
+                <input type="text" name="nome" class="form-control" id="nome" placeholder="name">
+                <label for="nome">Nome</label>
+            </div>
+            <div class="form-floating my-1">
                 <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
                 <label for="email">Email</label>
             </div>
-            <div class="form-floating">
+            <div class="form-floating my-1">
                 <input type="password" name="password" class="form-control" id="senha" placeholder="Password">
                 <label for="senha">Senha</label>
             </div>
 
-            <button class="btn btn-primary w-100 py-2" type="submit">Acessar</button>
+            <button class="btn btn-primary w-100 py-2" type="submit">Cadastrar</button>
             <div class="d-flex justify-content-between ">
                 <p class="mt-5 mb-3 text-body-secondary">&copy; 2017-2024</p>
-                <a href="/cadastrar" class="link-secondary">Não tem uma conta?</a>
+                <a href="/login" class="link-secondary">Já tem uma conta?</a>
             </div>
         </form>
     </main>

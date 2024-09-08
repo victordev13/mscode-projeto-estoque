@@ -14,7 +14,7 @@ class EditarController extends AbstractController
     $model = new Categoria();
     $categoria = $model->buscar($id);
 
-    $this->render('categoria/nova_categoria.php', [
+    $this->renderComHeader('categoria/nova_categoria.php', [
       'categoria' => $categoria,
       'produtosActive' => 'active'
     ]);

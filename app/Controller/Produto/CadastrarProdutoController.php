@@ -6,11 +6,11 @@ use App\Controller\AbstractController;
 
 class CadastrarProdutoController extends AbstractController
 {
-    public function index(array $requestData): void
-    {
-      $this->render('estoque/add.php',[
-        'headTitle' => '- Produtos',
-        'produtosActive' => 'active'
-      ]);
-    }
+  public function index(array $requestData): void
+  {
+    $this->renderComHeader('estoque/add.php', [
+      'headTitle' => '- Produtos',
+      'produtosActive' => 'active'
+    ]);
+  }
 }

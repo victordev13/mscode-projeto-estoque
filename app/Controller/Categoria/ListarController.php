@@ -12,7 +12,7 @@ class ListarController extends AbstractController
     $model = new Categoria();
     $categorias = $model->listar();
 
-    $this->render('categoria/categoria.php', [
+    $this->renderComHeader('categoria/categoria.php', [
       'categorias' => $categorias,
       'headTitle' => '- Categorias',
       'produtosActive' => 'active',

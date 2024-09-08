@@ -12,11 +12,7 @@ class AppController extends AbstractController
     $usuario = new Usuario();
     $nome = $usuario->buscarPorEmail($_SESSION['email'])[0]['nome'];
 
-    if ($_SESSION['usuarioLogado'] === false) {
-      $this->redirect('/login');
-    }
-
-    $this->render('app.php', [
+    $this->renderComHeader('app.php', [
       'nome' => $nome,
       'headTitle' => '- App',
       'inicioActive' => 'active'

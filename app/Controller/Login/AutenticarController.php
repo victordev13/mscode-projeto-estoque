@@ -12,7 +12,7 @@ class AutenticarController extends AbstractController
         $usuarioConexao = new Usuario();
         $usuario = $usuarioConexao->buscarPorEmail($requestData['email']);
         if (null === $usuario) {
-            $this->redirect('/error');
+            $this->render('login/login.php', ['error' => 'Email ou senha invalidos']); 
         }
 
         if(password_verify($requestData['password'], $usuario[0]['senha'])){
@@ -23,6 +23,6 @@ class AutenticarController extends AbstractController
             $this->redirect('/app');
         }
 
-        $this->redirect('/error');
+        $this->render('login/login.php', ['error' => 'Email ou senha invalidos']); 
     }
 }

@@ -18,7 +18,7 @@ class EditarProdutoController extends AbstractController
       exit;
     }
 
-    $this->render('estoque/add.php', [
+    $this->renderComHeader('estoque/add.php', [
       'produto' => $produto,
       'headTitle' => '- Produtos',
       'produtosActive' => 'active'

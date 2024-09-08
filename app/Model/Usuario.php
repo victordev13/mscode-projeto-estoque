@@ -22,4 +22,16 @@ class Usuario
 
         return $usuario;
     }
+
+    public function cadastrar(string $nome, string $email, string $senha): void
+    {
+        $this->query->insert(
+            tabela: 'usuario',
+            dados: [
+                'nome' => $nome,
+                'email' => $email,
+                'senha' => $senha
+            ]
+        );
+    }
 }
