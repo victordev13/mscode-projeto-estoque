@@ -10,7 +10,7 @@ class CadastrarUsuarioController extends AbstractController
   public function index(array $requestData): void
   {
     $user = new Usuario();
-    $emailUser = $user->buscarPorEmail($requestData['email']);
+    $emailUser = $user->buscarPorEmail($requestData['email'])[0]['email'];
     
     if ($emailUser) {
       $this->render('login/cadastro.php', ['error' => true]);
