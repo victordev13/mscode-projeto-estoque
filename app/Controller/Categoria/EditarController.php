@@ -16,6 +16,7 @@ class EditarController extends AbstractController
 
     $this->renderComHeader('categoria/nova_categoria.php', [
       'categoria' => $categoria,
+      'headTitle' => '- Categorias',
       'produtosActive' => 'active'
     ]);
   }
