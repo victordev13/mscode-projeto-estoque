@@ -2,8 +2,6 @@
 
 namespace App\Database;
 
-use App\Controller\AbstractController;
-
 class Query
 {
     private \PDO $pdo;
