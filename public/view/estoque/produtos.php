@@ -24,8 +24,14 @@
                         <th scope='row'><?= $produto['id'] ?></th>
                         <td scope='row'><?= $produto['nome'] ?></td>
                         <td scope='row'><?= $produto['descricao'] ?></td>
-                        <td scope='row'><?= $produto['categoria_id'] ?></td>
-                        <td scope='row'><?= $produto['valor'] ?></td>
+                        <td scope='row'>
+                            <?php foreach ($data['categorias'] as $categoria) :
+                                if ($categoria['id'] === $produto['categoria_id']) {
+                                    echo $categoria['nome'] . " - " . $produto['categoria_id'];
+                                }
+                            endforeach ?>
+                        </td>
+                        <td scope='row'><?= "R$ " . $produto['valor'] . ",00" ?></td>
                         <td scope='row'><?= $produto['quantidade_disponivel'] ?></td>
                         <td class="col-2 text-align-right">
                             <a href='/app/estoque/add?id=<?= $produto['id'] ?>' class="btn btn-primary btn-sm"><i class="bi bi-plus"></i></a>

@@ -28,7 +28,7 @@
       </div>
       <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="<?= $data['categoria']['nome'] ?>">
+        <input type="text" class="form-control" id="nome" name="nome" value="<?= $data['categoria']['nome'] ?>">
       </div>
       <button type="submit" class="btn btn-primary">
         <?php

@@ -16,16 +16,24 @@
                                       } ?>" method="POST">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="<?= $data['produto']['nome'] ?>">
+        <input type="text" class="form-control" id="nome" name="nome" value="<?= $data['produto']['nome'] ?>">
       </div>
       <div class="mb-3">
         <label for="descricao" class="form-label">Descrição:</label>
-        <textarea class="form-control" id="descricao" name="descricao" style="resize:none;" rows="5" placeholder="<?= $data['produto']['descricao'] ?>"></textarea>
+        <textarea class="form-control" id="descricao" name="descricao" style="resize:none;" rows="5"><?= $data['produto']['descricao'] ?></textarea>
       </div>
       <div class="row">
         <div class="mb-3 col-4">
-          <label for="categoriaId" class="form-label">Categoria Id:</label>
-          <input type="number" class="form-control" id="categoriaId" name="categoriaId" placeholder="<?= $data['produto']['categoria_id'] ?>">
+          <label for="categoriaId" class="form-label">Categoria:</label>
+          <select class="form-select" aria-label="Default select example" name="categoriaId" id="categoriaId">
+            <?php foreach ($data['categoria'] as $categoria) : ?>
+              <?php if ($categoria['id'] === $data['produto']['categoria_id']): ?>
+                <option selected><?= $categoria['nome'] ?></option>
+                <?php continue; ?>
+              <?php endif ?>
+              <option value="<?= $categoria['id'] ?>"><?= $categoria['nome'] ?></option>
+            <?php endforeach ?>
+          </select>
         </div>
         <div class="mb-3 col-4">
           <label for="quantidade" class="form-label">Quantidade:</label>
@@ -36,11 +44,11 @@
             } else {
               echo '';
             } ?>
-            class="form-control" id="quantidade" name="quantidade" placeholder="<?= $data['produto']['quantidade_disponivel'] ?>">
+            class="form-control" id="quantidade" name="quantidade" value="<?= $data['produto']['quantidade_disponivel'] ?>">
         </div>
         <div class="mb-3 col-4">
           <label for="valor" class="form-label">Valor:</label>
-          <input type="text" class="form-control" id="valor" name="valor" placeholder="<?= $data['produto']['valor'] ?>">
+          <input type="text" class="form-control" id="valor" name="valor" value="<?= $data['produto']['valor'] ?>">
         </div>
       </div>
       <button type="submit" class="btn btn-primary">
