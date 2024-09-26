@@ -2,7 +2,6 @@
 
 namespace App\Model;
 
-use App\Database\Database;
 use App\Database\Query;
 
 class Usuario

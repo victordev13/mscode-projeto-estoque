@@ -7,6 +7,7 @@ use App\Controller\Categorias\EditarController;
 use App\Controller\Categorias\ListarController;
 use App\Controller\Categorias\RemoverController;
 use App\Controller\Categorias\SalvarController;
+use App\Controller\Error\ErrorController;
 use App\Controller\Error\NotFoundController;
 use App\Controller\LoginController;
 use App\Controller\Produtos\EditarProdutoController;
@@ -27,6 +28,7 @@ $router = [
         '/produtos' => ListarProdutosController::class,
         '/produtos/editar' => ShowEditarProdutoController::class,
         '/produtos/editar/salvar' => EditarProdutoController::class,
+        '/error' => ErrorController::class,
     ],
     'default' => NotFoundController::class
 ];

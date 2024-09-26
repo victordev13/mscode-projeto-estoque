@@ -27,6 +27,12 @@ abstract class AbstractController
         die();
     }
 
+    public function redirectToError(string $mensagemErro): never
+    {
+        header("Location: /error?mensagem=" . $mensagemErro);
+        die();
+    }
+
     /** Deve fazer o include da view */
     abstract public function index(array $requestData): void;
 }

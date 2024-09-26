@@ -14,7 +14,6 @@ class ShowEditarProdutoController extends AbstractController
 
         $produto = $model->buscar($produtoId);
 
-
         $this->render('produtos/editar.php', ['produto' => $produto]);
     }
 }
