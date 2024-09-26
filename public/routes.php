@@ -9,6 +9,9 @@ use App\Controller\Categorias\RemoverController;
 use App\Controller\Categorias\SalvarController;
 use App\Controller\Error\NotFoundController;
 use App\Controller\LoginController;
+use App\Controller\Produtos\EditarProdutoController;
+use App\Controller\Produtos\ListarProdutosController;
+use App\Controller\Produtos\ShowEditarProdutoController;
 
 $router = [
     'routes' => [
@@ -21,6 +24,9 @@ $router = [
         '/categorias/remover' => RemoverController::class,
         '/categorias/cadastrar' => CadastrarController::class,
         '/categorias/cadastrar/salvar' => SalvarController::class,
+        '/produtos' => ListarProdutosController::class,
+        '/produtos/editar' => ShowEditarProdutoController::class,
+        '/produtos/editar/salvar' => EditarProdutoController::class,
     ],
     'default' => NotFoundController::class
 ];

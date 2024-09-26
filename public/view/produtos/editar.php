@@ -25,8 +25,7 @@
           <ul class="nav nav-pills d-flex align-items-center">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Vendas
               </a>
               <ul class="dropdown-menu">
@@ -35,13 +34,12 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Produtos
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
-                <li><a class="dropdown-item" href="categorias.html">Categorias</a></li>
+                <li><a class="dropdown-item active" href="categorias.html">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
@@ -51,40 +49,43 @@
     </div>
 
     <div class="container py-5">
-      <div class="mb-4 d-flex flex-row justify-content-between">
-        <h1>Categorias</h1>
-        <div>
-          <a href="/categorias/cadastrar" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
-        </div>
+      <div class="mb-4">
+        <h1>Novo produto</h1>
       </div>
 
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nome</th>
-            <th scope="col-1 text-align-right">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach($data['categorias'] as $categoria) { ?>
-            <tr>
-              <th scope="row"><?php echo $categoria['id']; ?></th>
-              <td><?php echo $categoria['nome']; ?></td>
-              <td class="col-1 text-align-right">
-                <a href="/categorias/editar?id=<?php echo $categoria['id']; ?>" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i></a>
-                <a href="/categorias/remover?id=<?php echo $categoria['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-x"></i></a>
-              </td>
-            </tr>
-          <?php } ?>
-        </tbody>
+      <div class="w-50 mt-2">
+        <form action="/produtos/editar/salvar?id=<?php echo $data['produto']['id']; ?>" method="POST">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $data['produto']['nome']; ?>">
+          </div>
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição:</label>
+            <textarea class="form-control" id="descricao" name="descricao" style="resize:none;" rows="5"><?php echo $data['produto']['descricao']; ?></textarea>
+          </div>
 
-      </table>
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="categoriaId" class="form-label">Categoria Id:</label>
+              <input type="number" class="form-control" id="categoriaId" name="categoriaId" value="<?php echo $data['produto']['categoria_id']; ?>">
+            </div>
+            <div class="mb-3 col-4">
+              <label for="quantidade" class="form-label">Quantidade disponível:</label>
+              <input disabled type="number" class="form-control" id="quantidade" name="quantidade" value="<?php echo $data['produto']['quantidade_disponivel']; ?>">
+            </div>
+            <div class="mb-3 col-4">
+              <label for="valor" class="form-label">Valor:</label>
+              <input type="text" class="form-control" id="valor" name="valor" value="<?php echo $data['produto']['valor']; ?>">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

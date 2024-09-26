@@ -16,6 +16,8 @@ class AutenticarController extends AbstractController
             exit;
         }
 
+        // validar senha
+
         $_SESSION['usuarioEstaLogado'] = true;
         $_SESSION['email'] = $requestData['email'];
 
