@@ -42,7 +42,7 @@
                 <li><a class="dropdown-item active" href="categorias.html">Categorias</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
+            <li class="nav-item"><a href="#" class="btn btn-outline-success m-0 ms-4" aria-current="page">Sair</a></li>
           </ul>
         </header>
       </div>
