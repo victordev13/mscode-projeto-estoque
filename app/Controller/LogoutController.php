@@ -6,7 +6,7 @@ class LogoutController extends AbstractController
 {
     public function index(array $data): void
     {
-       unset($_SESSION['NOME']);
+        session_destroy();
 
         $this->redirect('/login');
     }
