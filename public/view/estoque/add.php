@@ -16,11 +16,11 @@
                                       } ?>" method="POST">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
-        <input type="text" class="form-control" id="nome" name="nome" value="<?= $data['produto']['nome'] ?>">
+        <input type="text" class="form-control" id="nome" name="nome" value="<?= isset($data['produto']['nome']) ? $data['produto']['nome'] : '' ?>">
       </div>
       <div class="mb-3">
         <label for="descricao" class="form-label">Descrição:</label>
-        <textarea class="form-control" id="descricao" name="descricao" style="resize:none;" rows="5"><?= $data['produto']['descricao'] ?></textarea>
+        <textarea class="form-control" id="descricao" name="descricao" style="resize:none;" rows="5"><?= isset($data['produto']['descricao']) ? $data['produto']['descricao'] : '' ?></textarea>
       </div>
       <div class="row">
         <div class="mb-3 col-4">
@@ -38,26 +38,16 @@
         <div class="mb-3 col-4">
           <label for="quantidade" class="form-label">Quantidade:</label>
           <input type="number"
-            <?php
-            if (isset($data['produto'])) {
-              echo 'disabled';
-            } else {
-              echo '';
-            } ?>
-            class="form-control" id="quantidade" name="quantidade" value="<?= $data['produto']['quantidade_disponivel'] ?>">
+            <?= isset($data['produto']) ? 'disabled' : '' ?>
+            class="form-control" id="quantidade" name="quantidade" value="<?= isset($data['produto']['quantidade_disponivel']) ? $data['produto']['quantidade_disponivel'] : '' ?>">
         </div>
         <div class="mb-3 col-4">
           <label for="valor" class="form-label">Valor:</label>
-          <input type="text" class="form-control" id="valor" name="valor" value="<?= $data['produto']['valor'] ?>">
+          <input type="text" class="form-control" id="valor" name="valor" value="<?= isset($data['produto']['valor']) ? $data['produto']['valor'] : '' ?>">
         </div>
       </div>
       <button type="submit" class="btn btn-primary">
-        <?php
-        if (isset($data['produto'])) {
-          echo 'Atualizar';
-        } else {
-          echo 'Salvar';
-        } ?>
+        <?= isset($data['produto']) ? 'Atualizar' : 'Salvar' ?>
       </button>
     </form>
   </div>

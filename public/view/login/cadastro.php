@@ -20,10 +20,10 @@
 
                 <h1 class="h3 fw-normal my-0 ms-2">MS Code - Estoque</h1>
             </div>
-                <?php if ($data['error'] === true) { 
-                    echo "<div class='alert alert-danger' role='alert'>Email já cadastrado!</div>";
-                } else if ($data['error'] === false) {
-                    echo "<div class='alert alert-success' role='alert'>Cadastrado Com Sucesso!</div>";
+                <?php if (isset($data['error']) && $data['error'] === true) { 
+                    echo "<div class='alert alert-danger' role='alert'>{$data['message']}</div>";
+                } else if (isset($data['error']) && $data['error'] === false) {
+                    echo "<div class='alert alert-success' role='alert'>{$data['message']}</div>";
                 } else {
                     echo "";
                 } ?>

@@ -20,7 +20,7 @@
 
                 <h1 class="h3 fw-normal my-0 ms-2">MS Code - Estoque</h1>
             </div>
-            <?php if ($data['error']) {
+            <?php if (isset($data['error'])) {
                 echo "<div class='form-floarting alert alert-danger' role='alert'>{$data['error']}</div>";
             } ?>
             <div class="form-floating">
@@ -40,7 +40,8 @@
         </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

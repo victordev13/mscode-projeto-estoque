@@ -9,7 +9,7 @@ class Query
     public function __construct()
     {
         $database = new Database(
-            host: 'localhost',
+            host: '127.0.0.1',
             database: 'mscode_estoque',
             username: 'root',
             password: 'mscode2024',
@@ -19,7 +19,7 @@ class Query
         $this->pdo = $database->connection();
     }
 
-    public function select(string $tabela, string $condicao = null, string $colunas = '*'): false|array
+    public function select(string $tabela, ?string $condicao = null, string $colunas = '*'): false|array
     {
         try {
             $sql = "SELECT {$colunas} FROM {$tabela}";

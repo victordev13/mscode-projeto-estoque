@@ -9,20 +9,27 @@ class AutenticarController extends AbstractController
 {
     public function index(array $requestData): void
     {
-        $usuarioConexao = new Usuario();
-        $usuario = $usuarioConexao->buscarPorEmail($requestData['email']);
-        if (null === $usuario) {
-            $this->render('login/login.php', ['error' => 'Email ou senha invalidos']); 
+        foreach ($requestData as $item) {
+            if ($item == null) {
+                $this->render('login/login.php', ['error' => 'Preencha todos os campos']);
+                return;
+            }
         }
 
-        if(password_verify($requestData['password'], $usuario[0]['senha'])){
-            $id = $usuarioConexao->buscarPorEmail($requestData['email']);
+        $usuarioConexao = new Usuario();
+        $usuario = $usuarioConexao->buscarPorEmail($requestData['email'])[0];
+        if ($usuario === null) {
+            $this->render('login/login.php', ['error' => 'Email ou senha invalidos']);
+        }
+
+        if (password_verify($requestData['password'], $usuario['senha'])) {
+            $id = $usuarioConexao->buscarPorEmail($requestData['email'])[0]['id'];
             $_SESSION['usuarioLogado'] = true;
             $_SESSION['email'] = $requestData['email'];
-            $_SESSION['id'] = $id[0]['id'];
+            $_SESSION['id'] = $id;
             $this->redirect('/app');
         }
 
-        $this->render('login/login.php', ['error' => 'Email ou senha invalidos']); 
+        $this->render('login/login.php', ['error' => 'Email ou senha invalidos']);
     }
 }

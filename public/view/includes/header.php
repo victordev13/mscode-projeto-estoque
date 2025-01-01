@@ -22,9 +22,9 @@
                         <span class="fs-4">MS Code <?= $data['headTitle'] ?></span>
                     </a>
                     <ul class="nav nav-pills d-flex align-items-center">
-                        <li class="nav-item"><a href="/app" class="nav-link <?= $data['inicioActive']?>" aria-current="page">Início</a></li>
+                        <li class="nav-item"><a href="/app" class="nav-link <?= isset($data['inicioActive']) ? $data['inicioActive'] : '' ?>" aria-current="page">Início</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= $data['vendasActive']?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?= isset($data['vendasActive']) ? $data['vendasActive'] : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Vendas
                             </a>
                             <ul class="dropdown-menu">
@@ -33,7 +33,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= $data['produtosActive']?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?= isset($data['produtosActive']) ? $data['produtosActive'] : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Produtos
                             </a>
                             <ul class="dropdown-menu">
